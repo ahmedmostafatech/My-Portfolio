@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/pages/contact.css">
+<title>Contact — A.Mostafa</title>
+</head>
+<body>
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- NAV (component) -->
+<nav>
+  <a href="index.html" class="nav-logo">A.MOSTAFA</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="works.html">Works</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+  <a href="mailto:ahmedmostafa15k@gmail.com" class="nav-cta">LET'S TALK</a>
+</nav>
+
+<!-- HERO -->
+<div class="contact-hero reveal">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-left">
+    <div>
+      <div class="hero-eyebrow">Get In Touch</div>
+      <h1 class="hero-heading">
+        LET'S<br>
+        <span class="outline">TALK</span><span class="accent">.</span>
+      </h1>
+      <p class="hero-sub">
+        Got a project, a question, or just want to say hi?<br>
+        I read every message — personally.
+      </p>
+    </div>
+    <div class="hero-bottom-row">
+      <div class="availability-badge">
+        <div class="avail-dot"></div>
+        Available for freelance
+      </div>
+      <div class="response-time">
+        <strong>Within 24h</strong>
+        avg. response time
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="big-email-label">Primary Contact</div>
+    <div class="big-email">ahmedmostafa15k<br>@gmail.com</div>
+    <a href="mailto:ahmed.mostafa@example.com" class="email-cta">
+      Open Email Client
+      <span class="email-arrow">↗</span>
+    </a>
+    <div class="or-divider">or</div>
+    <button class="copy-email-btn" id="copyBtn" onclick="copyEmail()">
+      <span id="copyIcon">⎘</span>
+      <span id="copyText">Copy Email Address</span>
+    </button>
+  </div>
+</div>
+
+<!-- CHANNELS -->
+<div class="channels-section reveal">
+  <div class="channels-header">
+    <div class="ch-title">FIND ME ON</div>
+    <div class="ch-sub">Choose your platform — same person, same energy, different context.</div>
+  </div>
+  <div class="channels-grid stagger">
+    <a href="mailto:ahmedmostafa15k@gmail.com" class="channel-card ch-email">
+      <div class="ch-icon">✉</div>
+      <div class="ch-platform">Email</div>
+      <div class="ch-name">Direct Mail</div>
+      <div class="ch-handle">ahmedmostafa15k@gamil.com</div>
+      <div class="ch-action">Write to me <span class="ch-arrow">↗</span></div>
+    </a>
+    <a href="https://www.linkedin.com/in/ahmed-mostafatech" target="_blank" class="channel-card ch-linkedin">
+      <div class="ch-icon">in</div>
+      <div class="ch-platform">LinkedIn</div>
+      <div class="ch-name">LinkedIn</div>
+      <div class="ch-handle">@ahmedmostafatech</div>
+      <div class="ch-action">Connect <span class="ch-arrow">↗</span></div>
+    </a>
+    <a href="https://www.behance.net/ahmedmostafa610" target="_blank" class="channel-card ch-behance">
+      <div class="ch-icon">Be</div>
+      <div class="ch-platform">Behance</div>
+      <div class="ch-name">Portfolio</div>
+      <div class="ch-handle">@ahmedmostafatech610</div>
+      <div class="ch-action">View work <span class="ch-arrow">↗</span></div>
+    </a>
+    <a href="https://www.youtube.com/@ahmedmostafatech" target="_blank" class="channel-card ch-youtube">
+      <div class="ch-icon">▶</div>
+      <div class="ch-platform">YouTube</div>
+      <div class="ch-name">Channel</div>
+      <div class="ch-handle">@ahmedmostafatech</div>
+      <div class="ch-action">Watch now <span class="ch-arrow">↗</span></div>
+    </a>
+    <a href="https://wa.me/201157502004" target="_blank" class="channel-card ch-whatsapp">
+      <div class="ch-icon">💬</div>
+      <div class="ch-platform">WhatsApp</div>
+      <div class="ch-name">Quick Chat</div>
+      <div class="ch-handle">For quick questions</div>
+      <div class="ch-action">Message me <span class="ch-arrow">↗</span></div>
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER STRIP -->
+<div class="footer-strip reveal">
+  <div class="fs-left">
+    <div class="fs-label">Philosophy</div>
+    <div class="fs-quote">
+      Good work starts<br>with <em>good conversation.</em>
+    </div>
+  </div>
+  <div class="fs-right">
+    <a href="index.html" class="back-home">← Back to Home</a>
+  </div>
+</div>
+
+<!-- FOOTER (component) -->
+<footer>
+  <div class="footer-logo">A.MOSTAFA</div>
+  <div class="footer-links">
+    <a href="https://youtube.com/@ahmed.mostafa" target="_blank">YouTube</a>
+    <a href="https://behance.net/ahmedmostafatech" target="_blank">Behance</a>
+    <a href="https://github.com/ahmedmostafatech" target="_blank">GitHub</a>
+    <a href="https://linkedin.com/in/ahmed-mostafatech" target="_blank">LinkedIn</a>
+  </div>
+  <div class="footer-copy">© 2025 Ahmed Mostafa.</div>
+</footer>
+
+<script src="assets/js/core.js"></script>
+<script src="assets/js/pages/contact.js"></script>
+</body>
+</html>

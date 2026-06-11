@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Works — Ahmed Mostafa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages/works.css">
+</head>
+<body>
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">A.MOSTAFA</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="works.html" class="active">Works</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="index.html#cta" class="nav-cta">Let's Talk</a>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-left">
+    <div class="eyebrow">Selected Works</div>
+    <h1 class="page-title">
+      CREATIVE<br>
+      <span class="outline">WORK</span>
+    </h1>
+  </div>
+  <div class="page-header-right">
+    A curated collection of design and technology projects — from premium brand identities to intelligent AI systems.
+  </div>
+</div>
+
+<!-- L1 FILTER -->
+<div class="l1-filter">
+  <button class="l1-btn active" data-l1="creative" onclick="setL1('creative',this)">
+    Creative <span class="l1-count">12</span>
+  </button>
+  <button class="l1-btn" data-l1="technical" onclick="setL1('technical',this)">
+    Technical <span class="l1-count">8</span>
+  </button>
+</div>
+
+<!-- L2 FILTER -->
+<div class="l2-filter" id="l2-filter"></div>
+
+<!-- RESULTS ROW -->
+<div class="results-row">
+  <div class="results-count">Showing <span id="count">12</span> projects</div>
+  <div class="view-toggle">
+    <button class="vtbtn active" onclick="setGrid(3,this)" title="3 columns">⊞</button>
+    <button class="vtbtn" onclick="setGrid(2,this)" title="2 columns">▦</button>
+    <button class="vtbtn" onclick="setGrid(1,this)" title="1 column">▤</button>
+  </div>
+</div>
+
+<!-- GRID -->
+<div class="works-container">
+  <div class="works-grid" id="works-grid"></div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">A.MOSTAFA</div>
+  <div class="footer-copy">© 2025 Ahmed Mostafa. All Rights Reserved.</div>
+</footer>
+
+  <script src="assets/js/core.js"></script>
+  <script src="assets/js/pages/works.js"></script>
+</body>
+</html>

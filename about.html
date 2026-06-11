@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Ahmed Mostafa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages/about.css">
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">A.MOSTAFA</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="works.html">Works</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="index.html#cta" class="nav-cta">Let's Talk</a>
+</nav>
+
+<!-- HERO -->
+<div class="about-hero reveal">
+  <div class="hero-left">
+    <div>
+      <div class="hero-eyebrow">About Me</div>
+      <div class="hero-name">
+        AH<span class="accent">M</span>ED<br>
+        <span class="outline">MOST</span>AFA
+      </div>
+      <div class="hero-title-tag">
+        <div class="dot"></div>
+        Graphic Designer & AI/ML Enthusiast
+      </div>
+    </div>
+    <div class="hero-left-bottom">
+      <div class="hero-big-stat">
+        <div>
+          <div class="stat-n">3<sup>+</sup></div>
+          <div class="stat-l">Years Building & Designing</div>
+        </div>
+        <div style="margin-left:40px;">
+          <div class="stat-n">20<sup>+</sup></div>
+          <div class="stat-l">Projects Delivered</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+<img src="assets/images/2.svg" alt="Ahmed Mostafa" class="about-photo">
+    <div class="photo-overlay"></div>
+    <div class="photo-info">
+      <div class="photo-caption">Ahmed Mostafa — EELU, Computer Science</div>
+      <div class="photo-location">Aswan, Egypt</div>
+    </div>
+  </div>
+</div>
+
+<!-- STATS BAR -->
+<div class="stats-bar reveal">
+  <div class="stat-cell">
+    <div class="n">20<em>+</em></div>
+    <div class="l">Design Projects</div>
+  </div>
+  <div class="stat-cell">
+    <div class="n">10<em>+</em></div>
+    <div class="l">AI Models Built</div>
+  </div>
+  <div class="stat-cell">
+    <div class="n">15<em>+</em></div>
+    <div class="l">YouTube Videos</div>
+  </div>
+  <div class="stat-cell">
+    <div class="n">01</div>
+    <div class="l">Vision — Creative Tech</div>
+  </div>
+</div>
+
+<!-- STORY -->
+<div class="story-section reveal">
+  <div class="story-sidebar">
+    <div class="sidebar-label">Chapters</div>
+    <div class="sidebar-index">
+      <div class="index-item active" onclick="showStory('narrative',this)">The Story</div>
+      <div class="index-item" onclick="showStory('values',this)">My Values</div>
+    </div>
+  </div>
+
+  <div class="story-content">
+
+    <div class="story-block active" id="story-narrative">
+      <div class="story-eyebrow">Origin Story</div>
+      <h2 class="story-heading">
+        Started with pixels,<br><em>ended up with models.</em>
+      </h2>
+      <div class="story-body">
+        <p>It started with a simple question: <strong>what makes something look good?</strong> That curiosity pulled me into graphic design — branding, social media, the craft of making things feel premium. I got obsessed.</p>
+        <p>Then another question hit harder: <strong>what if the tool could think?</strong> That's when I discovered machine learning. Computer vision, NLP, deep learning — a whole new way to build things that don't just look intelligent, they actually are.</p>
+        <p>Today I sit at that intersection. I design brands that communicate clearly, and I build AI systems that process the world intelligently. Two disciplines, one mindset — and I teach both on <strong>YouTube</strong> in Arabic, because great knowledge should have no language barrier.</p>
+      </div>
+    </div>
+
+    <div class="story-block" id="story-values">
+      <div class="story-eyebrow">What drives me</div>
+      <h2 class="story-heading">
+        Principles I don't<br><em>compromise on.</em>
+      </h2>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-num">01</div>
+          <div class="value-title">Craft over speed</div>
+          <div class="value-desc">Every pixel and every line of code deserves intention. Fast is easy. Right is hard. I choose hard.</div>
+        </div>
+        <div class="value-card">
+          <div class="value-num">02</div>
+          <div class="value-title">Clarity is king</div>
+          <div class="value-desc">Complex ideas should be explained simply. Whether in design or AI, confusion is a failure of communication.</div>
+        </div>
+        <div class="value-card">
+          <div class="value-num">03</div>
+          <div class="value-title">Learn in public</div>
+          <div class="value-desc">YouTube isn't just content — it's accountability. Teaching forces mastery. Sharing creates community.</div>
+        </div>
+        <div class="value-card">
+          <div class="value-num">04</div>
+          <div class="value-title">Hybrid thinking</div>
+          <div class="value-desc">The most interesting problems live at intersections. Design + AI isn't a niche — it's the future.</div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+<!-- SKILLS -->
+<div class="skills-section reveal">
+  <div class="skills-section-header">
+    <div class="section-header">
+      <div class="section-num">SK</div>
+      <div class="section-title">SKILLS & TOOLS</div>
+    </div>
+  </div>
+  <div class="skills-row">
+    <div class="skill-label-col">Design</div>
+    <div class="skill-items-col">
+      <span class="skill-pill highlight">Brand Identity</span>
+      <span class="skill-pill highlight">Social Media Design</span>
+      <span class="skill-pill">Typography</span>
+      <span class="skill-pill">Color Theory</span>
+      <span class="skill-pill highlight">Adobe Illustrator</span>
+      <span class="skill-pill highlight">Photoshop</span>
+      <span class="skill-pill">Figma</span>
+      <span class="skill-pill">Print Design</span>
+    </div>
+  </div>
+  <div class="skills-row">
+    <div class="skill-label-col">AI & ML</div>
+    <div class="skill-items-col">
+      <span class="skill-pill highlight">Python</span>
+      <span class="skill-pill highlight">PyTorch</span>
+      <span class="skill-pill">TensorFlow</span>
+      <span class="skill-pill highlight">Computer Vision</span>
+      <span class="skill-pill highlight">NLP</span>
+      <span class="skill-pill">Deep Learning</span>
+      <span class="skill-pill">OpenCV</span>
+      <span class="skill-pill">Scikit-learn</span>
+    </div>
+  </div>
+  <div class="skills-row">
+    <div class="skill-label-col">Tech</div>
+    <div class="skill-items-col">
+      <span class="skill-pill">HTML / CSS</span>
+      <span class="skill-pill">JavaScript</span>
+      <span class="skill-pill">Git & GitHub</span>
+      <span class="skill-pill">Jupyter</span>
+      <span class="skill-pill">Linux</span>
+    </div>
+  </div>
+  <div class="skills-row">
+    <div class="skill-label-col">Soft Skills</div>
+    <div class="skill-items-col">
+      <span class="skill-pill highlight">Teaching</span>
+      <span class="skill-pill">Arabic Content Creation</span>
+      <span class="skill-pill">Client Communication</span>
+      <span class="skill-pill highlight">Problem Solving</span>
+      <span class="skill-pill">Self-learning</span>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="about-cta reveal">
+  <div class="cta-left">
+    <div class="label">Ready to work together?</div>
+    <h2>LET'S BUILD<br><em>SOMETHING</em><br>GREAT.</h2>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:14px;">
+    <a href="index.html#cta" class="btn-primary">Start a Project ↗</a>
+    <a href="#" class="btn-secondary">Download CV</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">A.MOSTAFA</div>
+  <div class="footer-links">
+    <a href="#">YouTube</a>
+    <a href="#">Behance</a>
+    <a href="#">GitHub</a>
+    <a href="#">LinkedIn</a>
+  </div>
+  <div class="footer-copy">© 2025 Ahmed Mostafa. All Rights Reserved.</div>
+</footer>
+
+<script src="assets/js/core.js"></script>
+<script src="assets/js/pages/about.js"></script>
+</body>
+</html>
