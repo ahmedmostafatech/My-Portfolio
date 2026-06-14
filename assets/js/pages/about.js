@@ -4,24 +4,35 @@ let valuesInitialized = false;
 function showStory(id, el) {
   document.querySelectorAll('.story-block').forEach(b => b.classList.remove('active'));
   document.querySelectorAll('.index-item').forEach(i => i.classList.remove('active'));
-  document.getElementById('story-' + id).classList.add('active');
   el.classList.add('active');
 
-  const valSec = document.getElementById('values-section');
+  const valSec       = document.getElementById('values-section');
+  const storySec     = document.querySelector('.story-section');
   const storyContent = document.querySelector('.story-content');
 
-  if(valSec){
-    if(id === 'values') {
-      valSec.style.display = 'grid';
-      storyContent.style.display = 'none';
+  if (id === 'values') {
+    /* اخفي الـ story section كاملة واظهر الـ values */
+    storySec.style.display    = 'none';
+    valSec.style.display      = 'block';
+
+    setTimeout(() => {
+      valSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 50);
+
+    setTimeout(() => {
       valuesInitialized = false;
-      setTimeout(() => initValuesScroll(), 50);
-    } else {
-      valSec.style.display = 'none';
-      storyContent.style.display = 'block';
-      if(window._valuesWheelHandler) {
-        window.removeEventListener('wheel', window._valuesWheelHandler);
-      }
+      initValuesScroll();
+    }, 600);
+
+  } else {
+    /* ارجع للـ story */
+    valSec.style.display      = 'none';
+    storySec.style.display    = 'grid';
+    storyContent.style.display = 'block';
+    document.getElementById('story-' + id).classList.add('active');
+
+    if (window._valuesWheelHandler) {
+      window.removeEventListener('wheel', window._valuesWheelHandler);
     }
   }
 }
@@ -63,14 +74,25 @@ function initValuesScroll(){
     });
   });
 
-  window._valuesWheelHandler = (e) => {
-    const valSec = document.getElementById('values-section');
-    if(!valSec || valSec.style.display === 'none') return;
-    e.preventDefault();
-    rowsTrack.scrollBy({ left: e.deltaY * 2.5, behavior: 'smooth' });
-  };
-  window.addEventListener('wheel', window._valuesWheelHandler, { passive: false });
-}
+window._valuesWheelHandler = (e) => {
+  const valSec = document.getElementById('values-section');
+  if(!valSec || valSec.style.display === 'none') return;
+
+  /* تحقق إن الـ values section في الـ viewport */
+  const rect = valSec.getBoundingClientRect();
+  const inView = rect.top <= 10 && rect.bottom >= window.innerHeight - 10;
+  if(!inView) return;
+
+  const maxScroll = rowsTrack.scrollWidth - rowsTrack.clientWidth;
+  const atStart   = rowsTrack.scrollLeft <= 0;
+  const atEnd     = rowsTrack.scrollLeft >= maxScroll - 2;
+
+  if((atEnd && e.deltaY > 0) || (atStart && e.deltaY < 0)) return;
+
+  e.preventDefault();
+  rowsTrack.scrollBy({ left: e.deltaY * 2.5, behavior: 'smooth' });
+};
+window.addEventListener('wheel', window._valuesWheelHandler, { passive: false });}
 
 // ── SK CARDS: 3D TILT + SHINE ──
 document.querySelectorAll('.sk-card').forEach(card => {
@@ -157,4 +179,25 @@ if(nlpWrap) {
     el.textContent = w+'  ·  '+w+'  ·  '+w+'  ·  '+w+'  ·  ';
     nlpWrap.appendChild(el);
   });
+}
+
+function backToStory() {
+  const valSec   = document.getElementById('values-section');
+  const storySec = document.querySelector('.story-section');
+
+  valSec.style.display   = 'none';
+  storySec.style.display = 'grid';
+
+  document.querySelectorAll('.story-block').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.index-item').forEach(i => i.classList.remove('active'));
+  document.getElementById('story-narrative').classList.add('active');
+
+  const narrativeBtn = document.querySelector('[onclick="showStory(\'narrative\',this)"]');
+  if(narrativeBtn) narrativeBtn.classList.add('active');
+
+  if(window._valuesWheelHandler) {
+    window.removeEventListener('wheel', window._valuesWheelHandler);
+  }
+
+  storySec.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }

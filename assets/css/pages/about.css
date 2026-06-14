@@ -356,16 +356,17 @@
 }
 
 /* ── STICKY SIDEBAR ── */
-.values-sidebar{
-  border-right:1px solid var(--border);
-  height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  padding:48px 32px;
-  background:var(--bg);
-  z-index:10;
-  position:relative;
+.values-sidebar {
+  border-right: 1px solid var(--border);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 48px 32px;
+  background: var(--bg);
+  z-index: 10;
+  position: sticky;  /* الـ sidebar يفضل ثابت */
+  top: 0;
 }
 
 
@@ -412,9 +413,11 @@
 /* VALUES — horizontal scroll */
 .values-section {
   display: grid;
-  grid-template-columns: 240px 1fr;
+  grid-template-columns: 280px 1fr;
   height: 100vh;
   overflow: hidden;
+  position: relative;
+  align-items: stretch;
 }
 
 .values-rows {
@@ -429,9 +432,6 @@
 
 }
 
-#story-values {
-  display: none !important;
-}
 
 .values-rows::-webkit-scrollbar { display: none; }
 
