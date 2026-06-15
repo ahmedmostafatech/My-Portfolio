@@ -86,6 +86,7 @@
 </div>
 
 <!-- STORY -->
+<!-- STORY -->
 <div class="story-section reveal">
   <div class="story-sidebar">
     <div class="sidebar-label">Chapters</div>
@@ -93,10 +94,28 @@
       <div class="index-item active" onclick="showStory('narrative',this)">The Story</div>
       <div class="index-item" onclick="showStory('values',this)">My Values</div>
     </div>
+
+    <!-- dots تظهر بس لما values active -->
+    <div class="values-nav" id="valuesNav" style="display:none;">
+      <div class="sidebar-label" style="margin-top:32px;">Values</div>
+      <div class="snav-item active" style="--active-c:#7ab4ff" data-target="0">
+        <div class="snav-dot"></div>Craft
+      </div>
+      <div class="snav-item" style="--active-c:#f0f4fc" data-target="1">
+        <div class="snav-dot"></div>Clarity
+      </div>
+      <div class="snav-item" style="--active-c:#22c55e" data-target="2">
+        <div class="snav-dot"></div>Learning
+      </div>
+      <div class="snav-item" style="--active-c:#a259ff" data-target="3">
+        <div class="snav-dot"></div>Hybrid
+      </div>
+    </div>
   </div>
 
   <div class="story-content">
 
+    <!-- NARRATIVE -->
     <div class="story-block active" id="story-narrative">
       <div class="story-eyebrow">Origin Story</div>
       <h2 class="story-heading">
@@ -109,94 +128,72 @@
       </div>
     </div>
 
-<div class="story-block" id="story-values"></div>
+    <!-- VALUES -->
+    <div class="story-block" id="story-values">
+      <div class="values-rows" id="valuesRows">
+
+        <div class="vrow" data-row="0">
+          <div class="vrow-bigtype">CRAFT</div>
+          <div class="vrow-content">
+            <div class="vrow-num">01 / 04</div>
+            <div class="vrow-title">Craft over speed</div>
+            <div class="vrow-desc">
+              Every pixel and every line of code deserves intention.<br>
+              <strong>Fast is easy. Right is hard.</strong> I choose hard — because the difference between good and exceptional lives in the details most people skip.
+            </div>
+            <div class="vrow-keyword">Precision · Intention · Details</div>
+          </div>
+        </div>
+
+        <div class="vrow" data-row="1">
+          <div class="vrow-bigtype">CLARITY</div>
+          <div class="vrow-content">
+            <div class="vrow-num">02 / 04</div>
+            <div class="vrow-title">Clarity is king</div>
+            <div class="vrow-desc">
+              Complex ideas should be explained simply.<br>
+              Whether in design or AI, <strong>confusion is a failure of communication.</strong> If I can't explain it clearly, I don't understand it well enough yet.
+            </div>
+            <div class="vrow-keyword">Simplicity · Communication · Focus</div>
+          </div>
+        </div>
+
+        <div class="vrow" data-row="2">
+          <div class="vrow-bigtype">PUBLIC</div>
+          <div class="vrow-content">
+            <div class="vrow-num">03 / 04</div>
+            <div class="vrow-title">Learn in public</div>
+            <div class="vrow-desc">
+              YouTube isn't just content — it's accountability.<br>
+              <strong>Teaching forces mastery. Sharing creates community.</strong> Every video is a commitment to understand deeply enough to explain it to someone else.
+            </div>
+            <div class="vrow-keyword">Teaching · Community · Growth</div>
+          </div>
+        </div>
+
+        <div class="vrow" data-row="3">
+          <div class="vrow-bigtype">HYBRID</div>
+          <div class="vrow-content">
+            <div class="vrow-num">04 / 04</div>
+            <div class="vrow-title">Hybrid thinking</div>
+            <div class="vrow-desc">
+              The most interesting problems live at intersections.<br>
+              <strong>Design + AI isn't a niche — it's the future.</strong> Thinking across disciplines creates solutions that specialists in either field alone would never reach.
+            </div>
+            <div class="vrow-keyword">Design · AI · Intersection</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
 
   </div>
 </div>
 
-<!-- VALUES SECTION — برا story-section -->
-<div id="values-section" style="display:none;">
-<section class="values-section">
-<div class="values-sidebar">
-  <div class="sidebar-top">
-    <div class="sidebar-label">Chapters</div>
-    <div class="sidebar-index" style="margin-bottom:32px;">
-      <div class="index-item" onclick="backToStory()">← The Story</div>
-    </div>
-    <div class="sidebar-label" style="margin-top:8px;">Values</div>
-    <nav class="sidebar-nav">
-      <div class="snav-item active" style="--active-c:#7ab4ff" data-target="0">
-        <div class="snav-dot"></div>Craft
-      </div>
-      <div class="snav-item" style="--active-c:#f0f0f0" data-target="1">
-        <div class="snav-dot"></div>Clarity
-      </div>
-      <div class="snav-item" style="--active-c:#22c55e" data-target="2">
-        <div class="snav-dot"></div>Learning
-      </div>
-      <div class="snav-item" style="--active-c:#a259ff" data-target="3">
-        <div class="snav-dot"></div>Hybrid
-      </div>
-    </nav>
-  </div>
-  <div class="sidebar-bottom">Scroll to explore</div>
-</div>
 
-  <div class="values-rows" id="valuesRows">
-    <div class="vrow" data-row="0">
-      <div class="vrow-bigtype">CRAFT</div>
-      <div class="vrow-content">
-        <div class="vrow-num">01 / 04</div>
-        <div class="vrow-title">Craft over speed</div>
-        <div class="vrow-desc">
-          Every pixel and every line of code deserves intention.<br>
-          <strong>Fast is easy. Right is hard.</strong> I choose hard — because the difference between good and exceptional lives in the details most people skip.
-        </div>
-        <div class="vrow-keyword">Precision · Intention · Details</div>
-      </div>
-    </div>
 
-    <div class="vrow" data-row="1">
-      <div class="vrow-bigtype">CLARITY</div>
-      <div class="vrow-content">
-        <div class="vrow-num">02 / 04</div>
-        <div class="vrow-title">Clarity is king</div>
-        <div class="vrow-desc">
-          Complex ideas should be explained simply.<br>
-          Whether in design or AI, <strong>confusion is a failure of communication.</strong> If I can't explain it clearly, I don't understand it well enough yet.
-        </div>
-        <div class="vrow-keyword">Simplicity · Communication · Focus</div>
-      </div>
-    </div>
 
-    <div class="vrow" data-row="2">
-      <div class="vrow-bigtype">PUBLIC</div>
-      <div class="vrow-content">
-        <div class="vrow-num">03 / 04</div>
-        <div class="vrow-title">Learn in public</div>
-        <div class="vrow-desc">
-          YouTube isn't just content — it's accountability.<br>
-          <strong>Teaching forces mastery. Sharing creates community.</strong> Every video is a commitment to understand deeply enough to explain it to someone else.
-        </div>
-        <div class="vrow-keyword">Teaching · Community · Growth</div>
-      </div>
-    </div>
 
-    <div class="vrow" data-row="3">
-      <div class="vrow-bigtype">HYBRID</div>
-      <div class="vrow-content">
-        <div class="vrow-num">04 / 04</div>
-        <div class="vrow-title">Hybrid thinking</div>
-        <div class="vrow-desc">
-          The most interesting problems live at intersections.<br>
-          <strong>Design + AI isn't a niche — it's the future.</strong> Thinking across disciplines creates solutions that specialists in either field alone would never reach.
-        </div>
-        <div class="vrow-keyword">Design · AI · Intersection</div>
-      </div>
-    </div>
-  </div>
-</section>
-</div>
 
 <!-- SKILLS -->
 <div class="skills-section reveal">
@@ -221,16 +218,20 @@
         <div class="sk-shine"></div>
         <div class="sk-content">
           <div class="sk-icon">
-            <svg viewBox="0 0 24 24"><path d="M8 24c2.208 0 4-1.792 4-4v-4H8a4 4 0 0 0 0 8z" fill="#0ACF83"/><path d="M4 12a4 4 0 0 1 4-4h4v8H8a4 4 0 0 1-4-4z" fill="#A259FF"/><path d="M4 4a4 4 0 0 1 4-4h4v8H8A4 4 0 0 1 4 4z" fill="#F24E1E"/><path d="M12 0h4a4 4 0 0 1 0 8h-4V0z" fill="#FF7262"/><path d="M20 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0z" fill="#1ABCFE"/></svg>
-          </div>
-          <div class="sk-cat">Core Discipline · 3+ Years</div>
-          <div class="sk-name">Graphic Design</div>
-          <div class="sk-desc">Premium visual identities that communicate personality. Branding, social media, and print — from strategy to final pixel.</div>
-          <div class="sk-bars">
-            <div class="sk-bar-item"><div class="sk-bar-top"><span>Branding</span><span>90%</span></div><div class="sk-bar-track"><div class="sk-bar-fill" style="--p:90%;--c:#a259ff"></div></div></div>
-            <div class="sk-bar-item"><div class="sk-bar-top"><span>Social Media</span><span>88%</span></div><div class="sk-bar-track"><div class="sk-bar-fill" style="--p:88%;--c:#a259ff"></div></div></div>
-            <div class="sk-bar-item"><div class="sk-bar-top"><span>Figma / Illustrator</span><span>85%</span></div><div class="sk-bar-track"><div class="sk-bar-fill" style="--p:85%;--c:#a259ff"></div></div></div>
-          </div>
+  <svg viewBox="0 0 24 24" fill="none">
+    <circle cx="12" cy="12" r="4" fill="#a259ff" opacity=".8"/>
+    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="#a259ff" opacity=".4"/>
+    <path d="M12 8v8M8 12h8" stroke="#a259ff" stroke-width="1.5" stroke-linecap="round"/>
+  </svg>
+</div>
+<div class="sk-cat">Core Discipline · 3+ Years</div>
+<div class="sk-name">Graphic Design</div>
+<div class="sk-desc">Premium visual identities, social media systems, and print materials — from brand strategy to final pixel.</div>
+<div class="sk-bars">
+  <div class="sk-bar-item"><div class="sk-bar-top"><span>Branding</span><span>90%</span></div><div class="sk-bar-track"><div class="sk-bar-fill" style="--p:90%;--c:#a259ff"></div></div></div>
+  <div class="sk-bar-item"><div class="sk-bar-top"><span>Social Media</span><span>88%</span></div><div class="sk-bar-track"><div class="sk-bar-fill" style="--p:88%;--c:#a259ff"></div></div></div>
+  <div class="sk-bar-item"><div class="sk-bar-top"><span>Print Design</span><span>82%</span></div><div class="sk-bar-track"><div class="sk-bar-fill" style="--p:82%;--c:#a259ff"></div></div></div>
+</div>
         </div>
         <div class="sk-num">01</div>
       </div>
@@ -239,9 +240,9 @@
     <!-- 2 — PYTHON -->
     <div class="sk-card" style="--card-c:#FFD43B" data-card="1">
       <div class="sk-tilt">
-        <div class="sk-bg bg-python">
-          <canvas class="matrix-canvas" id="matrixCanvas"></canvas>
-        </div>
+<div class="sk-bg bg-python">
+  <div class="py-snake" id="pySnake"></div>
+</div>
         <div class="sk-shine"></div>
         <div class="sk-content">
           <div class="sk-icon">
@@ -258,7 +259,31 @@
         <div class="sk-num">02</div>
       </div>
     </div>
-
+<!-- 4 — WEB DEVELOPMENT -->
+<div class="sk-card" style="--card-c:#3d8ef5" data-card="6">
+  <div class="sk-tilt">
+    <div class="sk-bg" style="background:linear-gradient(135deg,#000d1a 0%,#001a33 50%,#000810 100%);">
+      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:.06;font-family:'Bebas Neue',sans-serif;font-size:120px;color:#3d8ef5;letter-spacing:-4px;">&lt;/&gt;</div>
+    </div>
+    <div class="sk-shine"></div>
+    <div class="sk-content">
+      <div class="sk-icon">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z" fill="#3d8ef5"/>
+        </svg>
+      </div>
+      <div class="sk-cat">Web · 2+ Years</div>
+      <div class="sk-name">Web Development</div>
+      <div class="sk-desc">Building responsive, modern web experiences. From semantic HTML to interactive JavaScript — clean code that works.</div>
+      <div class="sk-bars">
+        <div class="sk-bar-item"><div class="sk-bar-top"><span>HTML / CSS</span><span>88%</span></div><div class="sk-bar-track"><div class="sk-bar-fill" style="--p:88%;--c:#3d8ef5"></div></div></div>
+        <div class="sk-bar-item"><div class="sk-bar-top"><span>JavaScript</span><span>78%</span></div><div class="sk-bar-track"><div class="sk-bar-fill" style="--p:78%;--c:#3d8ef5"></div></div></div>
+        <div class="sk-bar-item"><div class="sk-bar-top"><span>Responsive Design</span><span>85%</span></div><div class="sk-bar-track"><div class="sk-bar-fill" style="--p:85%;--c:#3d8ef5"></div></div></div>
+      </div>
+    </div>
+    <div class="sk-num">03</div>
+  </div>
+</div>
     <!-- 3 — PYTORCH -->
     <div class="sk-card" style="--card-c:#EE4C2C" data-card="2">
       <div class="sk-tilt">
@@ -276,7 +301,7 @@
             <div class="sk-bar-item"><div class="sk-bar-top"><span>Training Loops</span><span>75%</span></div><div class="sk-bar-track"><div class="sk-bar-fill" style="--p:75%;--c:#EE4C2C"></div></div></div>
           </div>
         </div>
-        <div class="sk-num">03</div>
+        <div class="sk-num">04</div>
       </div>
     </div>
 
@@ -300,7 +325,7 @@
             <div class="sk-bar-item"><div class="sk-bar-top"><span>OpenCV</span><span>80%</span></div><div class="sk-bar-track"><div class="sk-bar-fill" style="--p:80%;--c:#00B4D8"></div></div></div>
           </div>
         </div>
-        <div class="sk-num">04</div>
+        <div class="sk-num">05</div>
       </div>
     </div>
 
@@ -321,7 +346,7 @@
             <div class="sk-bar-item"><div class="sk-bar-top"><span>Arabic NLP</span><span>78%</span></div><div class="sk-bar-track"><div class="sk-bar-fill" style="--p:78%;--c:#7B61FF"></div></div></div>
           </div>
         </div>
-        <div class="sk-num">05</div>
+        <div class="sk-num">06</div>
       </div>
     </div>
 
@@ -342,9 +367,88 @@
             <div class="sk-bar-item"><div class="sk-bar-top"><span>Keras API</span><span>82%</span></div><div class="sk-bar-track"><div class="sk-bar-fill" style="--p:82%;--c:#FF6F00"></div></div></div>
           </div>
         </div>
-        <div class="sk-num">06</div>
+        <div class="sk-num">07</div>
       </div>
     </div>
+
+    <!-- NETWORKING -->
+<div class="sk-card" style="--card-c:#00d4aa" data-card="7">
+  <div class="sk-tilt">
+    <div class="sk-bg" style="background:linear-gradient(135deg,#001a14 0%,#003328 50%,#000d0a 100%);">
+      <div style="position:absolute;inset:0;overflow:hidden;opacity:.12;">
+        <svg viewBox="0 0 200 200" style="width:100%;height:100%;">
+          <circle cx="100" cy="100" r="60" fill="none" stroke="#00d4aa" stroke-width=".5"/>
+          <circle cx="100" cy="100" r="30" fill="none" stroke="#00d4aa" stroke-width=".5"/>
+          <line x1="40" y1="100" x2="160" y2="100" stroke="#00d4aa" stroke-width=".5"/>
+          <line x1="100" y1="40" x2="100" y2="160" stroke="#00d4aa" stroke-width=".5"/>
+          <circle cx="100" cy="40" r="4" fill="#00d4aa"/>
+          <circle cx="160" cy="100" r="4" fill="#00d4aa"/>
+          <circle cx="100" cy="160" r="4" fill="#00d4aa"/>
+          <circle cx="40" cy="100" r="4" fill="#00d4aa"/>
+          <circle cx="100" cy="100" r="6" fill="#00d4aa"/>
+        </svg>
+      </div>
+    </div>
+    <div class="sk-shine"></div>
+    <div class="sk-content">
+      <div class="sk-icon">
+        <svg viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="5" r="2" stroke="#00d4aa" stroke-width="1.5"/>
+          <circle cx="5" cy="19" r="2" stroke="#00d4aa" stroke-width="1.5"/>
+          <circle cx="19" cy="19" r="2" stroke="#00d4aa" stroke-width="1.5"/>
+          <path d="M12 7v4M12 11l-5 6M12 11l5 6" stroke="#00d4aa" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="sk-cat">Networking · CCNA Track</div>
+      <div class="sk-name">Networking</div>
+      <div class="sk-desc">TCP/IP, subnetting, routing protocols, VLANs, and network security. Teaching CCNA-aligned content in Arabic.</div>
+      <div class="sk-bars">
+        <div class="sk-bar-item"><div class="sk-bar-top"><span>Subnetting</span><span>95%</span></div><div class="sk-bar-track"><div class="sk-bar-fill" style="--p:85%;--c:#00d4aa"></div></div></div>
+        <div class="sk-bar-item"><div class="sk-bar-top"><span>Routing & Switching</span><span>88%</span></div><div class="sk-bar-track"><div class="sk-bar-fill" style="--p:78%;--c:#00d4aa"></div></div></div>
+        <div class="sk-bar-item"><div class="sk-bar-top"><span>Network Security</span><span>72%</span></div><div class="sk-bar-track"><div class="sk-bar-fill" style="--p:72%;--c:#00d4aa"></div></div></div>
+      </div>
+    </div>
+    <div class="sk-num">08</div>
+  </div>
+</div>
+
+<!-- EDUCATION & CONTENT -->
+<div class="sk-card" style="--card-c:#f59e0b" data-card="8">
+  <div class="sk-tilt">
+    <div class="sk-bg" style="background:linear-gradient(135deg,#1a1000 0%,#332000 50%,#0d0800 100%);">
+      <div style="position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:flex-end;padding:20px;opacity:.08;">
+        <svg viewBox="0 0 120 80" style="width:70%;height:auto;">
+          <rect x="0" y="0" width="120" height="80" rx="4" fill="none" stroke="#f59e0b" stroke-width="1"/>
+          <line x1="10" y1="20" x2="110" y2="20" stroke="#f59e0b" stroke-width="1"/>
+          <line x1="10" y1="35" x2="80" y2="35" stroke="#f59e0b" stroke-width="1"/>
+          <line x1="10" y1="50" x2="90" y2="50" stroke="#f59e0b" stroke-width="1"/>
+          <circle cx="60" cy="65" r="8" fill="none" stroke="#f59e0b" stroke-width="1"/>
+          <line x1="52" y1="65" x2="65" y2="60" stroke="#f59e0b" stroke-width="1.5"/>
+          <line x1="52" y1="65" x2="65" y2="70" stroke="#f59e0b" stroke-width="1.5"/>
+        </svg>
+      </div>
+    </div>
+    <div class="sk-shine"></div>
+    <div class="sk-content">
+      <div class="sk-icon">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M12 3L2 8l10 5 10-5-10-5z" stroke="#f59e0b" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M2 16l10 5 10-5" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M2 12l10 5 10-5" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="sk-cat">Teaching & Content · 1+ Years</div>
+      <div class="sk-name">Education & Content</div>
+      <div class="sk-desc">Creating Arabic technical content for AI, Networking, and Web Development. YouTube instructor breaking down complex topics for the Arab tech community.</div>
+      <div class="sk-bars">
+        <div class="sk-bar-item"><div class="sk-bar-top"><span>Arabic Content Creation</span><span>92%</span></div><div class="sk-bar-track"><div class="sk-bar-fill" style="--p:92%;--c:#f59e0b"></div></div></div>
+        <div class="sk-bar-item"><div class="sk-bar-top"><span>Curriculum Design</span><span>85%</span></div><div class="sk-bar-track"><div class="sk-bar-fill" style="--p:85%;--c:#f59e0b"></div></div></div>
+        <div class="sk-bar-item"><div class="sk-bar-top"><span>Student Engagement</span><span>88%</span></div><div class="sk-bar-track"><div class="sk-bar-fill" style="--p:88%;--c:#f59e0b"></div></div></div>
+      </div>
+    </div>
+    <div class="sk-num">09</div>
+  </div>
+</div>
 
   </div>
 </div>

@@ -43,7 +43,7 @@ if(reveals.length){
 const ti = document.getElementById('ticker-inner');
 if(ti){
   const items=[
-    'Graphic Designer','AI Enthusiast','YouTuber','ML Engineer',
+    'Graphic Designer','AI Enthusiast','Content Creator','ML Engineer','CS Instructor','Networking',
     'Branding','Computer Vision','Deep Learning','NLP','Creative Technologist'
   ];
   const doubled=[...items,...items];
