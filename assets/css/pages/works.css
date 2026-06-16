@@ -545,19 +545,19 @@
   padding-left: 24px;
 }
 
+/* بعد */
 .modal-images {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1px;
-  background: var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
   margin-bottom: 8px;
 }
 
 .modal-img-wrap img {
   width: 100%;
-  height: 300px;
-  object-fit: cover;
+  height: auto;        /* ← الصورة تاخد حجمها الطبيعي */
   display: block;
+  object-fit: unset;   /* ← مش بيقص */
 }
 
 .modal-img-placeholder {

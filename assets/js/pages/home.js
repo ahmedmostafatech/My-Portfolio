@@ -90,60 +90,180 @@ if (wrap) {
 }
 
 /* ── WORK CAROUSEL ── */
-(function(){
-  const track = document.getElementById('work-track');
-  if(!track) return;
-
-  const cards = document.querySelectorAll('.proj-card');
+/* ══════════════════════════════════════════════
+   SELECTED WORK CAROUSEL — driven by WORKS data
+   ══════════════════════════════════════════════ */
+(function () {
+  const track  = document.getElementById('work-track');
   const dotsEl = document.getElementById('work-dots');
-  let currentIdx = 0;
+  const countEl = document.querySelector('.wf-count span');
+  if (!track || typeof WORKS === 'undefined') return;
 
-  /* build dots */
-  cards.forEach((_,i) => {
+  /* ── pick featured projects (in order) ── */
+  const featured = WORKS.filter(w => w.featured);
+
+  /* ── update count ── */
+  if (countEl) countEl.textContent = String(featured.length).padStart(2, '0');
+
+  /* ── build cards ── */
+  track.innerHTML = featured.map((w, i) => {
+    const thumb = w.img
+      ? `<img src="${w.img}" alt="${w.title}" class="thumb-img" loading="lazy">`
+      : `<div class="proj-bg" style="background:${w.thumb
+          ? `<img src="${w.thumb}" alt="${w.title}" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;">`
+          : `<div class="proj-bg" style="background:${w.bg};"></div>`
+        }"></div>`;
+
+    const tagsHTML = (w.tags || [])
+      .slice(0, 4)
+      .map(t => `<span class="gp-tag">${t}</span>`)
+      .join('');
+
+    return `
+      <div class="proj-card" data-index="${i}" onclick="openModal(${w.id})">
+        <div class="proj-thumb">
+          ${thumb}
+          <div class="proj-watermark">${String(i + 1).padStart(2, '0')}</div>
+          <div class="proj-cat-pill">${w.subtitle || w.l2}</div>
+          <div class="proj-overlay">
+            <div class="glass-panel">
+              <div class="gp-top">
+                <div class="gp-title">${w.title}</div>
+                <div class="gp-arrow">↗</div>
+              </div>
+              <div class="gp-desc">${w.desc}</div>
+              <div class="gp-tags">${tagsHTML}</div>
+            </div>
+          </div>
+        </div>
+        <div class="proj-info">
+          <div class="pi-left">
+            <div class="pi-num">${String(i + 1).padStart(2, '0')} / ${String(featured.length).padStart(2, '0')}</div>
+            <div class="pi-name">${w.title}</div>
+            <div class="pi-cat">${w.subtitle || ''}</div>
+          </div>
+          <div class="pi-right">↗</div>
+        </div>
+      </div>`;
+  }).join('');
+
+  /* ── dots ── */
+  const cards = track.querySelectorAll('.proj-card');
+  cards.forEach((_, i) => {
     const d = document.createElement('div');
-    d.className = 'pd' + (i===0 ? ' active' : '');
-    d.addEventListener('click', () => scrollTo(i));
+    d.className = 'pd' + (i === 0 ? ' active' : '');
+    d.addEventListener('click', () => scrollToCard(i));
     dotsEl.appendChild(d);
   });
 
   function updateDots(i) {
-    document.querySelectorAll('.pd').forEach((d,j) => d.classList.toggle('active', j===i));
+    document.querySelectorAll('#work-dots .pd')
+      .forEach((d, j) => d.classList.toggle('active', j === i));
   }
 
-  function scrollTo(i) {
-    cards[i].scrollIntoView({ behavior:'smooth', block:'nearest', inline:'start' });
+  function scrollToCard(i) {
+    cards[i]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
   }
 
-  /* intersection observer */
+  let currentIdx = 0;
+  let autoInterval;
+  let isPaused   = false;
+
+  /* ── intersection observer (update dots + currentIdx) ── */
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => {
-      if(e.isIntersecting && e.intersectionRatio >= 0.6) {
+      if (e.isIntersecting && e.intersectionRatio >= 0.55) {
         currentIdx = +e.target.dataset.index;
         updateDots(currentIdx);
       }
     });
-  }, { root: track, threshold: 0.6 });
+  }, { root: track, threshold: 0.55 });
   cards.forEach(c => io.observe(c));
 
-  /* arrows */
-  document.getElementById('btnPrev').addEventListener('click', () => {
-    currentIdx = Math.max(0, currentIdx-1);
-    scrollTo(currentIdx);
-  });
-  document.getElementById('btnNext').addEventListener('click', () => {
-    currentIdx = Math.min(cards.length-1, currentIdx+1);
-    scrollTo(currentIdx);
+  /* ── AUTO-PLAY ── */
+  function startAuto() {
+    autoInterval = setInterval(() => {
+      if (isPaused) return;
+      currentIdx = (currentIdx + 1) % cards.length;
+      scrollToCard(currentIdx);
+    }, 3200);
+  }
+  /* ── only auto-play when #work section is visible ── */
+const workSection = document.getElementById('work');
+if (workSection) {
+  const sectionObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        startAuto();
+      } else {
+        clearInterval(autoInterval);
+      }
+    });
+  }, { threshold: 0.2 });
+  sectionObs.observe(workSection);
+}
+
+  /* ── PAUSE on hover + scale up ── */
+  cards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      isPaused = true;
+      card.style.transition = 'transform .4s cubic-bezier(.4,0,.2,1)';
+      card.style.transform  = 'scale(1.025)';
+      document.body.classList.add('hovering');
+    });
+    card.addEventListener('mouseleave', () => {
+      isPaused = false;
+      card.style.transform = 'scale(1)';
+      document.body.classList.remove('hovering');
+    });
   });
 
-  /* keyboard */
+  /* ── ARROWS ── */
+  document.getElementById('btnPrev')?.addEventListener('click', () => {
+    isPaused = true;
+    currentIdx = Math.max(0, currentIdx - 1);
+    scrollToCard(currentIdx);
+    setTimeout(() => isPaused = false, 2000);
+  });
+  document.getElementById('btnNext')?.addEventListener('click', () => {
+    isPaused = true;
+    currentIdx = Math.min(cards.length - 1, currentIdx + 1);
+    scrollToCard(currentIdx);
+    setTimeout(() => isPaused = false, 2000);
+  });
+
+  /* ── DRAG scroll ── */
+  let isDown = false, startX, scrollL;
+  track.addEventListener('mousedown',  e => { isDown = true;  startX = e.pageX - track.offsetLeft; scrollL = track.scrollLeft; isPaused = true; });
+  track.addEventListener('mouseleave', () => { isDown = false; isPaused = false; });
+  track.addEventListener('mouseup',    () => { isDown = false; setTimeout(() => isPaused = false, 1500); });
+  track.addEventListener('mousemove',  e => {
+    if (!isDown) return;
+    e.preventDefault();
+    track.scrollLeft = scrollL - (e.pageX - track.offsetLeft - startX);
+  });
+
+  /* ── KEYBOARD ── */
   document.addEventListener('keydown', e => {
-    if(e.key==='ArrowRight'){ currentIdx=Math.min(cards.length-1,currentIdx+1); scrollTo(currentIdx); }
-    if(e.key==='ArrowLeft') { currentIdx=Math.max(0,currentIdx-1);              scrollTo(currentIdx); }
+    if (e.key === 'ArrowRight') { currentIdx = Math.min(cards.length-1, currentIdx+1); scrollToCard(currentIdx); }
+    if (e.key === 'ArrowLeft')  { currentIdx = Math.max(0, currentIdx-1);              scrollToCard(currentIdx); }
   });
 
-  /* hover cursor */
-  cards.forEach(c => {
-    c.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
-    c.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
-  });
 })();
+
+// ── ABOUT STATS CURSOR ──
+document.querySelectorAll('.stat-row').forEach(row => {
+  const color = getComputedStyle(row).getPropertyValue('--s-color').trim();
+  row.addEventListener('mouseenter', () => {
+    const ring = document.getElementById('cursor-ring');
+    const cur  = document.getElementById('cursor');
+    if (ring) { ring.style.borderColor = color; ring.style.width = '48px'; ring.style.height = '48px'; }
+    if (cur)  { cur.style.background = color; cur.style.width = '10px'; cur.style.height = '10px'; }
+  });
+  row.addEventListener('mouseleave', () => {
+    const ring = document.getElementById('cursor-ring');
+    const cur  = document.getElementById('cursor');
+    if (ring) { ring.style.borderColor = 'rgba(47,125,225,.35)'; ring.style.width = '36px'; ring.style.height = '36px'; }
+    if (cur)  { cur.style.background = 'var(--accent)'; cur.style.width = '8px'; cur.style.height = '8px'; }
+  });
+});

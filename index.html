@@ -74,8 +74,10 @@
 </div>
 
 <!-- ABOUT -->
+<!-- ABOUT -->
 <section id="about">
-  <div class="reveal">
+
+  <div class="about-left reveal">
     <div class="about-label">About Me</div>
     <h2 class="about-title">
       Where Design<br>
@@ -100,23 +102,85 @@
   </div>
 
   <div class="about-right reveal">
-    <div class="stat-row">
+
+    <div class="stat-row" style="--s-color:#3d8ef5">
       <div class="stat-label">Projects Done</div>
-      <div class="stat-num">20<span>+</span></div>
+      <div class="stat-num">20<sup>+</sup></div>
+      <div class="stat-tooltip">
+        <div class="tt-label">Design & Tech</div>
+        <div class="tt-title">20+ Projects</div>
+        <div class="tt-desc">Brand identities, social media systems, AI models, and web projects — delivered to real clients.</div>
+        <div class="tt-items">
+          <span class="tt-item">Branding</span>
+          <span class="tt-item">Social Media</span>
+          <span class="tt-item">AI/ML</span>
+          <span class="tt-item">Web</span>
+        </div>
+      </div>
     </div>
-    <div class="stat-row">
+
+    <div class="stat-row" style="--s-color:#EE4C2C">
       <div class="stat-label">AI Models Built</div>
-      <div class="stat-num">10<span>+</span></div>
+      <div class="stat-num">10<sup>+</sup></div>
+      <div class="stat-tooltip">
+        <div class="tt-label">Machine Learning</div>
+        <div class="tt-title">10+ Models</div>
+        <div class="tt-desc">Object detection, NLP, style transfer, face recognition — built and deployed with PyTorch & TensorFlow.</div>
+        <div class="tt-items">
+          <span class="tt-item" style="color:#EE4C2C;border-color:rgba(238,76,44,.2);background:rgba(238,76,44,.06)">PyTorch</span>
+          <span class="tt-item" style="color:#EE4C2C;border-color:rgba(238,76,44,.2);background:rgba(238,76,44,.06)">TensorFlow</span>
+          <span class="tt-item" style="color:#EE4C2C;border-color:rgba(238,76,44,.2);background:rgba(238,76,44,.06)">YOLO</span>
+          <span class="tt-item" style="color:#EE4C2C;border-color:rgba(238,76,44,.2);background:rgba(238,76,44,.06)">BERT</span>
+        </div>
+      </div>
     </div>
-    <div class="stat-row">
-      <div class="stat-label">YouTube Content</div>
-      <div class="stat-num">∞</div>
+
+    <div class="stat-row" style="--s-color:#ff0000">
+      <div class="stat-label">YouTube Videos</div>
+      <div class="stat-num">18<sup>+</sup></div>
+      <div class="stat-tooltip">
+        <div class="tt-label">Arabic Content</div>
+        <div class="tt-title">Teaching in Arabic</div>
+        <div class="tt-desc">Design & AI tutorials in Arabic — breaking down complex topics for the Arab tech community.</div>
+        <div class="tt-items">
+          <span class="tt-item" style="color:#ff0000;border-color:rgba(255,0,0,.2);background:rgba(255,0,0,.06)">Design</span>
+          <span class="tt-item" style="color:#ff0000;border-color:rgba(255,0,0,.2);background:rgba(255,0,0,.06)">AI & ML</span>
+          <span class="tt-item" style="color:#ff0000;border-color:rgba(255,0,0,.2);background:rgba(255,0,0,.06)">Networking</span>
+        </div>
+      </div>
     </div>
-    <div class="stat-row">
+
+    <div class="stat-row" style="--s-color:#22c55e">
+      <div class="stat-label">Years Learning</div>
+      <div class="stat-num">3<sup>+</sup></div>
+      <div class="stat-tooltip">
+        <div class="tt-label">Self-taught Journey</div>
+        <div class="tt-title">3+ Years</div>
+        <div class="tt-desc">From first Desigin to deploying ML models — a continuous journey of building, failing, and shipping.</div>
+        <div class="tt-items">
+          <span class="tt-item" style="color:#22c55e;border-color:rgba(34,197,94,.2);background:rgba(34,197,94,.06)">2022 — Design</span>
+          <span class="tt-item" style="color:#22c55e;border-color:rgba(34,197,94,.2);background:rgba(34,197,94,.06)">2024 — AI/ML</span>
+          <span class="tt-item" style="color:#22c55e;border-color:rgba(34,197,94,.2);background:rgba(34,197,94,.06)">2026 — YouTube</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="stat-row" style="--s-color:#f59e0b">
       <div class="stat-label">Coffee Per Day</div>
-      <div class="stat-num">3<span>☕</span></div>
+      <div class="stat-num">3<sup>☕</sup></div>
+      <div class="stat-tooltip">
+        <div class="tt-label">Important Metric</div>
+        <div class="tt-title">Fuel System</div>
+        <div class="tt-desc">Cup 1 — morning focus. Cup 2 — peak productivity zone. Cup 3 — late night deep work mode activated.</div>
+        <div class="tt-items">
+          <span class="tt-item" style="color:#f59e0b;border-color:rgba(245,158,11,.2);background:rgba(245,158,11,.06)">11pm — 3am</span>
+          <span class="tt-item" style="color:#f59e0b;border-color:rgba(245,158,11,.2);background:rgba(245,158,11,.06)">Best ideas: cup 2</span>
+        </div>
+      </div>
     </div>
+
   </div>
+
 </section>
 
 <!-- SKILLS -->
@@ -533,232 +597,8 @@
 
   <div class="carousel-outer">
     <div class="carousel-track" id="work-track">
-
-      <div class="proj-card" data-index="0">
-        <div class="proj-thumb">
-          <div class="proj-bg" style="background:linear-gradient(135deg,#0d1f3c 0%,#1a3a6b 50%,#0a1628 100%);"></div>
-          <div class="proj-watermark">01</div>
-          <div class="proj-cat-pill">Branding</div>
-          <div class="proj-overlay">
-            <div class="glass-panel">
-              <div class="gp-top">
-                <div class="gp-title">Nexus Brand Identity</div>
-                <div class="gp-arrow">↗</div>
-              </div>
-              <div class="gp-desc">Complete visual identity system — logo variants, color system, typography, and 40-page brand guidelines.</div>
-              <div class="gp-tags">
-                <span class="gp-tag">Logo</span><span class="gp-tag">Identity</span><span class="gp-tag">Guidelines</span><span class="gp-tag">Figma</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="proj-info">
-          <div class="pi-left">
-            <div class="pi-num">01 / 08</div>
-            <div class="pi-name">Nexus Brand Identity</div>
-            <div class="pi-cat">Branding</div>
-          </div>
-          <div class="pi-right">↗</div>
-        </div>
-      </div>
-
-      <div class="proj-card" data-index="1">
-        <div class="proj-thumb">
-          <div class="proj-bg" style="background:linear-gradient(135deg,#1a0a2e 0%,#3d1a6b 50%,#0f0820 100%);"></div>
-          <div class="proj-watermark">02</div>
-          <div class="proj-cat-pill">AI & ML</div>
-          <div class="proj-overlay">
-            <div class="glass-panel">
-              <div class="gp-top">
-                <div class="gp-title">Object Detection System</div>
-                <div class="gp-arrow">↗</div>
-              </div>
-              <div class="gp-desc">Real-time YOLOv8-based detection model trained on custom dataset — 94% mAP, deployed with FastAPI.</div>
-              <div class="gp-tags">
-                <span class="gp-tag">PyTorch</span><span class="gp-tag">YOLO</span><span class="gp-tag">OpenCV</span><span class="gp-tag">FastAPI</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="proj-info">
-          <div class="pi-left">
-            <div class="pi-num">02 / 08</div>
-            <div class="pi-name">Object Detection System</div>
-            <div class="pi-cat">AI & Computer Vision</div>
-          </div>
-          <div class="pi-right">↗</div>
-        </div>
-      </div>
-
-      <div class="proj-card" data-index="2">
-        <div class="proj-thumb">
-          <div class="proj-bg" style="background:linear-gradient(135deg,#1a1a0a 0%,#3d3d10 50%,#1a1800 100%);"></div>
-          <div class="proj-watermark">03</div>
-          <div class="proj-cat-pill">Social Media</div>
-          <div class="proj-overlay">
-            <div class="glass-panel">
-              <div class="gp-top">
-                <div class="gp-title">Fashion Brand Social Kit</div>
-                <div class="gp-arrow">↗</div>
-              </div>
-              <div class="gp-desc">100+ Instagram templates — Feed, Stories, Reels covers. Fully editable Figma system delivered monthly.</div>
-              <div class="gp-tags">
-                <span class="gp-tag">Instagram</span><span class="gp-tag">Templates</span><span class="gp-tag">Figma</span><span class="gp-tag">Motion</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="proj-info">
-          <div class="pi-left">
-            <div class="pi-num">03 / 08</div>
-            <div class="pi-name">Fashion Brand Social Kit</div>
-            <div class="pi-cat">Social Media Design</div>
-          </div>
-          <div class="pi-right">↗</div>
-        </div>
-      </div>
-
-      <div class="proj-card" data-index="3">
-        <div class="proj-thumb">
-          <div class="proj-bg" style="background:linear-gradient(135deg,#0a1a1a 0%,#0d3d3d 50%,#041414 100%);"></div>
-          <div class="proj-watermark">04</div>
-          <div class="proj-cat-pill">NLP</div>
-          <div class="proj-overlay">
-            <div class="glass-panel">
-              <div class="gp-top">
-                <div class="gp-title">Arabic Sentiment Analysis</div>
-                <div class="gp-arrow">↗</div>
-              </div>
-              <div class="gp-desc">BERT-based model fine-tuned for Arabic social media sentiment — 89% accuracy on dialect-heavy datasets.</div>
-              <div class="gp-tags">
-                <span class="gp-tag">BERT</span><span class="gp-tag">HuggingFace</span><span class="gp-tag">Arabic</span><span class="gp-tag">Python</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="proj-info">
-          <div class="pi-left">
-            <div class="pi-num">04 / 08</div>
-            <div class="pi-name">Arabic Sentiment Analysis</div>
-            <div class="pi-cat">NLP</div>
-          </div>
-          <div class="pi-right">↗</div>
-        </div>
-      </div>
-
-      <div class="proj-card" data-index="4">
-        <div class="proj-thumb">
-          <div class="proj-bg" style="background:linear-gradient(135deg,#1a0a0a 0%,#4a1010 50%,#200505 100%);"></div>
-          <div class="proj-watermark">05</div>
-          <div class="proj-cat-pill">Branding</div>
-          <div class="proj-overlay">
-            <div class="glass-panel">
-              <div class="gp-top">
-                <div class="gp-title">Solara Coffee Branding</div>
-                <div class="gp-arrow">↗</div>
-              </div>
-              <div class="gp-desc">Warm luxury identity for specialty coffee shop — logo, packaging, menu design, and brand guidelines.</div>
-              <div class="gp-tags">
-                <span class="gp-tag">Logo</span><span class="gp-tag">Packaging</span><span class="gp-tag">Print</span><span class="gp-tag">Menu</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="proj-info">
-          <div class="pi-left">
-            <div class="pi-num">05 / 08</div>
-            <div class="pi-name">Solara Coffee Branding</div>
-            <div class="pi-cat">Brand Identity</div>
-          </div>
-          <div class="pi-right">↗</div>
-        </div>
-      </div>
-
-      <div class="proj-card" data-index="5">
-        <div class="proj-thumb">
-          <div class="proj-bg" style="background:linear-gradient(135deg,#0a1528 0%,#163366 50%,#060e1a 100%);"></div>
-          <div class="proj-watermark">06</div>
-          <div class="proj-cat-pill">Deep Learning</div>
-          <div class="proj-overlay">
-            <div class="glass-panel">
-              <div class="gp-top">
-                <div class="gp-title">Neural Style Transfer</div>
-                <div class="gp-arrow">↗</div>
-              </div>
-              <div class="gp-desc">Apply artistic styles to photographs in real-time using CNN feature extraction and perceptual loss.</div>
-              <div class="gp-tags">
-                <span class="gp-tag">TensorFlow</span><span class="gp-tag">CNN</span><span class="gp-tag">Streamlit</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="proj-info">
-          <div class="pi-left">
-            <div class="pi-num">06 / 08</div>
-            <div class="pi-name">Neural Style Transfer</div>
-            <div class="pi-cat">Deep Learning</div>
-          </div>
-          <div class="pi-right">↗</div>
-        </div>
-      </div>
-
-      <div class="proj-card" data-index="6">
-        <div class="proj-thumb">
-          <div class="proj-bg" style="background:linear-gradient(135deg,#0d200d 0%,#1a4a1a 50%,#071407 100%);"></div>
-          <div class="proj-watermark">07</div>
-          <div class="proj-cat-pill">YouTube</div>
-          <div class="proj-overlay">
-            <div class="glass-panel">
-              <div class="gp-top">
-                <div class="gp-title">Channel Design System</div>
-                <div class="gp-arrow">↗</div>
-              </div>
-              <div class="gp-desc">Complete YouTube brand package — thumbnail templates, channel art, lower thirds, and end screens.</div>
-              <div class="gp-tags">
-                <span class="gp-tag">Thumbnails</span><span class="gp-tag">Motion</span><span class="gp-tag">Branding</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="proj-info">
-          <div class="pi-left">
-            <div class="pi-num">07 / 08</div>
-            <div class="pi-name">Channel Design System</div>
-            <div class="pi-cat">YouTube Design</div>
-          </div>
-          <div class="pi-right">↗</div>
-        </div>
-      </div>
-
-      <div class="proj-card" data-index="7">
-        <div class="proj-thumb">
-          <div class="proj-bg" style="background:linear-gradient(135deg,#1a1028 0%,#352060 50%,#100a1e 100%);"></div>
-          <div class="proj-watermark">08</div>
-          <div class="proj-cat-pill">Automation</div>
-          <div class="proj-overlay">
-            <div class="glass-panel">
-              <div class="gp-top">
-                <div class="gp-title">AI Design Generator</div>
-                <div class="gp-arrow">↗</div>
-              </div>
-              <div class="gp-desc">Python script that auto-generates all social media sizes from a single Figma template via API integration.</div>
-              <div class="gp-tags">
-                <span class="gp-tag">Python</span><span class="gp-tag">Figma API</span><span class="gp-tag">Pillow</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="proj-info">
-          <div class="pi-left">
-            <div class="pi-num">08 / 08</div>
-            <div class="pi-name">AI Design Generator</div>
-            <div class="pi-cat">Automation</div>
-          </div>
-          <div class="pi-right">↗</div>
-        </div>
-      </div>
-
-    </div>
+  <!-- rendered by home.js -->
+</div>
   </div>
 
   <div class="work-footer">
@@ -784,7 +624,7 @@
   <div class="community-grid">
 
     <!-- ── YOUTUBE (wide) ── -->
-    <a href="#" class="pc pc-yt">
+    <a href="https://www.youtube.com/@ahmedmostafatech" class="pc pc-yt">
       <div class="pc-top">
         <div class="pc-icon-wrap">
           <svg viewBox="0 0 24 24"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.54 3.5 12 3.5 12 3.5s-7.54 0-9.38.55A3.02 3.02 0 0 0 .5 6.19C0 8.04 0 12 0 12s0 3.96.5 5.81a3.02 3.02 0 0 0 2.12 2.14C4.46 20.5 12 20.5 12 20.5s7.54 0 9.38-.55a3.02 3.02 0 0 0 2.12-2.14C24 15.96 24 12 24 12s0-3.96-.5-5.81z" fill="#FF0000"/><path d="M9.75 15.02V8.98L15.5 12l-5.75 3.02z" fill="#fff"/></svg>
@@ -796,7 +636,7 @@
       <div class="pc-desc">Design & AI tutorials in Arabic — breaking down complex topics for the Arab tech community. From branding fundamentals to building neural networks from scratch.</div>
       <div class="pc-stats">
         <div class="pc-stat">
-          <div class="ps-n">∞</div>
+          <div class="ps-n">18</div>
           <div class="ps-l">Videos</div>
         </div>
         <div class="pc-stat">
@@ -804,15 +644,15 @@
           <div class="ps-l">Language</div>
         </div>
         <div class="pc-stat">
-          <div class="ps-n">2</div>
+          <div class="ps-n">3</div>
           <div class="ps-l">Topics</div>
         </div>
       </div>
-      <div class="pc-handle">ahmed.mostafa</div>
+      <div class="pc-handle">ahmedmostafatech</div>
     </a>
 
     <!-- ── BEHANCE ── -->
-    <a href="#" class="pc pc-bh">
+    <a href="https://www.behance.net/ahmedmostafa610" class="pc pc-bh">
       <div class="pc-top">
         <div class="pc-icon-wrap">
           <svg viewBox="0 0 24 24"><path d="M6.938 4.503c.702 0 1.34.06 1.92.188.577.13 1.07.33 1.485.61.41.28.733.65.96 1.12.225.47.34 1.05.34 1.73 0 .74-.17 1.36-.507 1.86-.338.5-.837.9-1.502 1.22.906.26 1.576.72 2.022 1.37.448.66.665 1.45.665 2.36 0 .75-.13 1.39-.41 1.93-.28.55-.67 1-.17 1.35-.497.36-1.068.63-1.71.8-.64.17-1.31.25-2.01.25H0V4.51h6.938zm-.34 5.65c.585 0 1.063-.14 1.437-.42.374-.28.56-.73.56-1.35 0-.34-.06-.62-.18-.84-.12-.22-.29-.4-.5-.53-.21-.13-.45-.22-.72-.27-.27-.05-.55-.08-.84-.08H3.5v3.5h3.1zm.16 5.9c.32 0 .623-.03.908-.1.285-.06.535-.17.75-.32.214-.15.384-.35.51-.6.125-.25.19-.57.19-.95 0-.76-.21-1.3-.63-1.62-.42-.32-.97-.48-1.65-.48H3.5v4.07h3.26zm8.642-1.27c.34.33.83.5 1.47.5.46 0 .85-.11 1.18-.34.33-.23.535-.48.61-.74h2.56c-.41 1.27-1.03 2.18-1.87 2.72-.84.54-1.86.81-3.05.81-.83 0-1.58-.13-2.24-.4-.66-.27-1.22-.65-1.67-1.14-.45-.49-.8-1.07-1.04-1.75-.24-.68-.36-1.42-.36-2.23 0-.78.13-1.51.38-2.19.25-.68.62-1.27 1.08-1.76.47-.5 1.03-.89 1.69-1.17.66-.28 1.4-.42 2.21-.42.9 0 1.7.17 2.38.52.68.35 1.24.82 1.67 1.4.43.59.74 1.26.93 2.02.19.76.25 1.55.19 2.39h-7.63c.04.73.27 1.3.61 1.63zm2.56-4.88c-.27-.3-.71-.45-1.31-.45-.38 0-.7.06-.96.19-.26.13-.47.29-.63.48-.16.19-.27.4-.34.62-.07.22-.11.43-.12.62h3.9c-.07-.65-.27-1.16-.54-1.46zm-3.89-4.42h4.74v1.16h-4.74V5.45z" fill="#1769FF"/></svg>
@@ -822,11 +662,11 @@
       <div class="pc-platform">Design Portfolio</div>
       <div class="pc-name">Behance</div>
       <div class="pc-desc">Full portfolio of design work — premium brand identities, social media systems, and case studies.</div>
-      <div class="pc-handle">ahmedmostafa</div>
+      <div class="pc-handle">ahmedmostafa610</div>
     </a>
 
     <!-- ── GITHUB ── -->
-    <a href="#" class="pc pc-gh">
+    <a href="https://github.com/ahmedmostafatech" class="pc pc-gh">
       <div class="pc-top">
         <div class="pc-icon-wrap">
           <svg viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" fill="#e8eef8"/></svg>
@@ -836,11 +676,11 @@
       <div class="pc-platform">Open Source</div>
       <div class="pc-name">GitHub</div>
       <div class="pc-desc">AI/ML projects, models, and scripts. Under active development — new repos dropping regularly.</div>
-      <div class="pc-handle">ahmedmostafa</div>
+      <div class="pc-handle">ahmedmostafatech</div>
     </a>
 
     <!-- ── LINKEDIN ── -->
-    <a href="#" class="pc pc-li">
+    <a href="https://www.linkedin.com/in/ahmed-mostafatech/" class="pc pc-li">
       <div class="pc-top">
         <div class="pc-icon-wrap">
           <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" fill="#0A66C2"/></svg>
@@ -850,7 +690,7 @@
       <div class="pc-platform">Professional Network</div>
       <div class="pc-name">LinkedIn</div>
       <div class="pc-desc">Professional updates, project highlights, and networking with the design & tech community.</div>
-      <div class="pc-handle">ahmed-mostafa</div>
+      <div class="pc-handle">ahmed-mostafatech</div>
     </a>
 
   </div>
@@ -858,9 +698,6 @@
   <!-- CTA STRIP -->
   <div class="community-cta">
     <div class="cta-text">Follow the journey — <strong>Design meets AI</strong></div>
-    <div class="cta-links">
-      <a href="#" class="cta-link">YouTube ↗</a>
-      <a href="#" class="cta-link">Behance ↗</a>
       <a href="contact.html" class="cta-link primary">Let's Work Together ↗</a>
     </div>
   </div>
@@ -895,6 +732,7 @@
   <div class="footer-copy">© 2025 Ahmed Mostafa. All Rights Reserved.</div>
 </footer>
 
+<script src="assets/js/pages/works.js"></script>  <!-- ← أضف السطر ده -->
   <script src="assets/js/core.js"></script>
   <script src="assets/js/pages/home.js"></script>
 </body>
