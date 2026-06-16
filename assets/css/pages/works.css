@@ -549,12 +549,12 @@
 .modal-images {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 25px;
   margin-bottom: 8px;
 }
 
 .modal-img-wrap img {
-  width: 100%;
+  width: 70%;
   height: auto;        /* ← الصورة تاخد حجمها الطبيعي */
   display: block;
   object-fit: unset;   /* ← مش بيقص */
