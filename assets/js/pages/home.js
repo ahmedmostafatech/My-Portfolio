@@ -99,31 +99,20 @@ if (wrap) {
   const countEl = document.querySelector('.wf-count span');
   if (!track || typeof WORKS === 'undefined') return;
 
-  /* ── pick featured projects (in order) ── */
   const featured = WORKS.filter(w => w.featured);
-
-  /* ── update count ── */
   if (countEl) countEl.textContent = String(featured.length).padStart(2, '0');
 
-  /* ── build cards ── */
-  track.innerHTML = featured.map((w, i) => {
-    const thumb = w.img
-      ? `<img src="${w.img}" alt="${w.title}" class="thumb-img" loading="lazy">`
-      : `<div class="proj-bg" style="background:${w.thumb
-          ? `<img src="${w.thumb}" alt="${w.title}" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;">`
-          : `<div class="proj-bg" style="background:${w.bg};"></div>`
-        }"></div>`;
-
-    const tagsHTML = (w.tags || [])
-      .slice(0, 4)
-      .map(t => `<span class="gp-tag">${t}</span>`)
-      .join('');
+  function buildCardHTML(w, displayIndex) {
+    const thumb = w.thumb
+      ? `<img src="${w.thumb}" alt="${w.title}" class="proj-bg" style="width:100%;height:100%;object-fit:cover;">`
+      : `<div class="proj-bg" style="background:${w.bg};"></div>`;
+    const tagsHTML = (w.tags || []).slice(0, 4).map(t => `<span class="gp-tag">${t}</span>`).join('');
 
     return `
-      <div class="proj-card" data-index="${i}" onclick="openModal(${w.id})">
+      <div class="proj-card" data-real="${w.id}" onclick="window.location.href='works.html?project=${w.id}'">
         <div class="proj-thumb">
           ${thumb}
-          <div class="proj-watermark">${String(i + 1).padStart(2, '0')}</div>
+          <div class="proj-watermark">${String(displayIndex + 1).padStart(2, '0')}</div>
           <div class="proj-cat-pill">${w.subtitle || w.l2}</div>
           <div class="proj-overlay">
             <div class="glass-panel">
@@ -138,72 +127,136 @@ if (wrap) {
         </div>
         <div class="proj-info">
           <div class="pi-left">
-            <div class="pi-num">${String(i + 1).padStart(2, '0')} / ${String(featured.length).padStart(2, '0')}</div>
+            <div class="pi-num">${String(displayIndex + 1).padStart(2, '0')} / ${String(featured.length).padStart(2, '0')}</div>
             <div class="pi-name">${w.title}</div>
             <div class="pi-cat">${w.subtitle || ''}</div>
           </div>
           <div class="pi-right">↗</div>
         </div>
       </div>`;
-  }).join('');
+  }
 
-  /* ── dots ── */
-  const cards = track.querySelectorAll('.proj-card');
-  cards.forEach((_, i) => {
+  const realHTML = featured.map((w, i) => buildCardHTML(w, i)).join('');
+  track.innerHTML = realHTML;
+
+  let cards = Array.from(track.querySelectorAll('.proj-card'));
+  const realCount = cards.length;
+
+  if (realCount > 1) {
+    const firstClone = cards[0].cloneNode(true);
+    const lastClone  = cards[realCount - 1].cloneNode(true);
+    firstClone.classList.add('clone');
+    lastClone.classList.add('clone');
+    track.appendChild(firstClone);
+    track.insertBefore(lastClone, cards[0]);
+    cards = Array.from(track.querySelectorAll('.proj-card'));
+  }
+
+  let currentIdx = realCount > 1 ? 1 : 0;
+  let isJumping = false; /* true while doing the silent no-animation jump */
+
+  function scrollToCard(i, smooth = true) {
+    if (!cards[i]) return;
+    track.scrollTo({ left: cards[i].offsetLeft, behavior: smooth ? 'smooth' : 'auto' });
+  }
+
+  /* initial position — no snap, no animation */
+  track.classList.add('no-snap');
+  requestAnimationFrame(() => {
+    track.scrollLeft = cards[currentIdx].offsetLeft;
+    requestAnimationFrame(() => track.classList.remove('no-snap'));
+  });
+
+  function updateDots(realI) {
+    document.querySelectorAll('#work-dots .pd').forEach((d, j) => d.classList.toggle('active', j === realI));
+  }
+
+  featured.forEach((_, i) => {
     const d = document.createElement('div');
     d.className = 'pd' + (i === 0 ? ' active' : '');
-    d.addEventListener('click', () => scrollToCard(i));
+    d.addEventListener('click', () => goTo(i));
     dotsEl.appendChild(d);
   });
 
-  function updateDots(i) {
-    document.querySelectorAll('#work-dots .pd')
-      .forEach((d, j) => d.classList.toggle('active', j === i));
+  function goTo(realI) {
+    currentIdx = realCount > 1 ? realI + 1 : realI;
+    scrollToCard(currentIdx);
+    updateDots(realI);
   }
 
-  function scrollToCard(i) {
-    cards[i]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
-  }
-
-  let currentIdx = 0;
+  let isPaused = false;
   let autoInterval;
-  let isPaused   = false;
+  let scrollEndTimeout;
 
-  /* ── intersection observer (update dots + currentIdx) ── */
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting && e.intersectionRatio >= 0.55) {
-        currentIdx = +e.target.dataset.index;
-        updateDots(currentIdx);
-      }
+  /* ── detect when smooth scroll/snap has actually settled ── */
+  track.addEventListener('scroll', () => {
+    if (isJumping) return; /* ignore scroll events fired by our own silent jump */
+    clearTimeout(scrollEndTimeout);
+    scrollEndTimeout = setTimeout(onScrollSettled, 120);
+  });
+
+  function onScrollSettled() {
+    if (realCount <= 1) return;
+
+    /* find which real index we landed on, by nearest offsetLeft */
+    let closestIdx = 0, closestDist = Infinity;
+    cards.forEach((c, i) => {
+      const dist = Math.abs(c.offsetLeft - track.scrollLeft);
+      if (dist < closestDist) { closestDist = dist; closestIdx = i; }
     });
-  }, { root: track, threshold: 0.55 });
-  cards.forEach(c => io.observe(c));
+    currentIdx = closestIdx;
 
-  /* ── AUTO-PLAY ── */
+    if (currentIdx === 0) {
+      /* landed on lastClone → silently jump to the real last card */
+      isJumping = true;
+      track.classList.add('no-snap');
+      currentIdx = realCount;
+      track.scrollLeft = cards[currentIdx].offsetLeft;
+      requestAnimationFrame(() => {
+        track.classList.remove('no-snap');
+        isJumping = false;
+      });
+    } else if (currentIdx === cards.length - 1) {
+      /* landed on firstClone → silently jump to the real first card */
+      isJumping = true;
+      track.classList.add('no-snap');
+      currentIdx = 1;
+      track.scrollLeft = cards[currentIdx].offsetLeft;
+      requestAnimationFrame(() => {
+        track.classList.remove('no-snap');
+        isJumping = false;
+      });
+    }
+
+    updateDots((currentIdx - 1 + realCount) % realCount);
+  }
+
+  function nextSlide() {
+    currentIdx++;
+    scrollToCard(currentIdx);
+  }
+  function prevSlide() {
+    currentIdx--;
+    scrollToCard(currentIdx);
+  }
+
   function startAuto() {
     autoInterval = setInterval(() => {
-      if (isPaused) return;
-      currentIdx = (currentIdx + 1) % cards.length;
-      scrollToCard(currentIdx);
+      if (!isPaused) nextSlide();
     }, 3200);
   }
-  /* ── only auto-play when #work section is visible ── */
-const workSection = document.getElementById('work');
-if (workSection) {
-  const sectionObs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        startAuto();
-      } else {
-        clearInterval(autoInterval);
-      }
-    });
-  }, { threshold: 0.2 });
-  sectionObs.observe(workSection);
-}
 
-  /* ── PAUSE on hover + scale up ── */
+  const workSection = document.getElementById('work');
+  if (workSection) {
+    const sectionObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) startAuto();
+        else clearInterval(autoInterval);
+      });
+    }, { threshold: 0.2 });
+    sectionObs.observe(workSection);
+  }
+
   cards.forEach(card => {
     card.addEventListener('mouseenter', () => {
       isPaused = true;
@@ -218,23 +271,19 @@ if (workSection) {
     });
   });
 
-  /* ── ARROWS ── */
   document.getElementById('btnPrev')?.addEventListener('click', () => {
     isPaused = true;
-    currentIdx = Math.max(0, currentIdx - 1);
-    scrollToCard(currentIdx);
+    prevSlide();
     setTimeout(() => isPaused = false, 2000);
   });
   document.getElementById('btnNext')?.addEventListener('click', () => {
     isPaused = true;
-    currentIdx = Math.min(cards.length - 1, currentIdx + 1);
-    scrollToCard(currentIdx);
+    nextSlide();
     setTimeout(() => isPaused = false, 2000);
   });
 
-  /* ── DRAG scroll ── */
   let isDown = false, startX, scrollL;
-  track.addEventListener('mousedown',  e => { isDown = true;  startX = e.pageX - track.offsetLeft; scrollL = track.scrollLeft; isPaused = true; });
+  track.addEventListener('mousedown',  e => { isDown = true; startX = e.pageX - track.offsetLeft; scrollL = track.scrollLeft; isPaused = true; });
   track.addEventListener('mouseleave', () => { isDown = false; isPaused = false; });
   track.addEventListener('mouseup',    () => { isDown = false; setTimeout(() => isPaused = false, 1500); });
   track.addEventListener('mousemove',  e => {
@@ -243,12 +292,10 @@ if (workSection) {
     track.scrollLeft = scrollL - (e.pageX - track.offsetLeft - startX);
   });
 
-  /* ── KEYBOARD ── */
   document.addEventListener('keydown', e => {
-    if (e.key === 'ArrowRight') { currentIdx = Math.min(cards.length-1, currentIdx+1); scrollToCard(currentIdx); }
-    if (e.key === 'ArrowLeft')  { currentIdx = Math.max(0, currentIdx-1);              scrollToCard(currentIdx); }
+    if (e.key === 'ArrowRight') nextSlide();
+    if (e.key === 'ArrowLeft')  prevSlide();
   });
-
 })();
 
 // ── ABOUT STATS CURSOR ──

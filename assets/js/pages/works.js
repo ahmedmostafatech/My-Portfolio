@@ -202,15 +202,42 @@ const WORKS = [
     link: "",
   },
 
-  /* ══ CREATIVE → YOUTUBE ══ */
-  
   {
     id: 9,
+    l1: "creative",
+    l2: "social",
+    thumb: "assets/images/portfolio_hero_section.webp",
+    featured: true,
+    num: "02",
+    wide: false,
+    title: " Social Media Posts MR.Abdelkader",
+    subtitle: "Social Media Posts",
+    desc: "وصف قصير",
+    tags: ["Facebook", "Posts", "Social Media"],
+    bg: "#1a0a1a",
+    label: "PROJ",
+    year: "2026",
+    role: "Social Media Designer",
+    client: "م/عبد القادر الصايغ",
+    fullDesc: "وصف تفصيلي.",
+    images: ['assets/images/1 (3).webp',
+      'assets/images/3.webp',
+      'assets/images/5 (1).webp',
+      'assets/images/6.webp',
+      'assets/images/عبدالقادر.webp',
+    ],
+    link: "",
+  },
+
+  /* ══ CREATIVE → YOUTUBE ══ */
+
+  {
+    id: 10,
     l1: "creative",
     l2: "youtube",
     thumb: "assets/images/R YouTube.webp",
     featured: true,
-    num: "02",
+    num: "01",
     wide: false,
     title: "YouTube Thumbnails | محتوى ديني",
     subtitle: "YouTube Thumbnails",
@@ -237,14 +264,14 @@ const WORKS = [
 
   
   {
-    id: 6,
+    id: 11,
     l1: "creative",
     l2: "youtube",
-    thumb: "assets/images/projects/proj1-thumb.jpg",
+    thumb: "assets/images/YouTube Portfolio.webp",
     featured: true,
-    num: "01",
+    num: "02",
     wide: false,
-    title: "اسم المشروع",
+    title: " YouTube Thumbnails MR.Abdelkader",
     subtitle: "Thumbnail System",
     desc: "وصف قصير",
     tags: ["Thumbnails", "YouTube", "CTR"],
@@ -252,9 +279,22 @@ const WORKS = [
     label: "PROJ",
     year: "2024",
     role: "Designer",
-    client: "العميل",
+    client: "م/عبد القادر الصايغ",
     fullDesc: "وصف تفصيلي.",
-    images: [],
+    images: [
+      'assets/images/التكاثر في النبات الجزء الأول.webp',
+      'assets/images/التكاثر في النبات الجزء التاني.webp',
+      'assets/images/ورشة الهرمونات.webp',
+      'assets/images/مكونات وطبقات الغلاف الجوي.webp',
+      'assets/images/الغلاف الجوي ودور العالم في استدامته.webp',
+      'assets/images/صور مصغرة عبد القادر1.webp',
+      'assets/images/مراجعة الباب الاول علـــــوم متكاملة.webp',
+      'assets/images/ورشة الدعامة والحركة.webp',
+      'assets/images/الطيات تراكيب جيولوجيا.webp',
+      'assets/images/التكاثر في الإنسان الجهاز التناسلي الأنثوي.webp',
+      'assets/images/التكاثر في الإنسان الجهاز التناسلي الذكري.webp',
+      'assets/images/15.webp'
+    ],
     link: "",
   },
   {
@@ -602,3 +642,23 @@ function setGrid(n, btn) {
 
 renderL2();
 renderCards();
+
+/* ── AUTO-OPEN PROJECT FROM URL (?project=id) ── */
+const urlParams = new URLSearchParams(window.location.search);
+const projectId = urlParams.get('project');
+if (projectId) {
+  const w = WORKS.find(x => x.id === Number(projectId));
+  if (w) {
+    currentL1 = w.l1;
+    currentL2 = w.l2;
+    document.querySelectorAll('.l1-btn').forEach(b => {
+      b.classList.toggle('active', b.dataset.l1 === currentL1);
+    });
+    renderL2();
+    renderCards();
+    setTimeout(() => openModal(w.id), 200);
+
+    /* مسح الـ query string عشان الريفرش أو الرجوع للخلف ما يفتحش المودال تاني */
+    window.history.replaceState({}, '', window.location.pathname);
+  }
+}
