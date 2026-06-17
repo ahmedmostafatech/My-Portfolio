@@ -321,15 +321,15 @@ const WORKS = [
 
   /* ══ CREATIVE → PRINT ══ */
   {
-    id: 8,
+    id: 12,
     l1: "creative",
     l2: "print",
-    thumb: "assets/images/projects/proj1-thumb.jpg",
+    thumb: "assets/images/أمجاد.webp",
     featured: true,
     num: "01",
     wide: false,
-    title: "اسم المشروع",
-    subtitle: "Report Design",
+    title: "مطبوعات أكادمية أمجاد التعليمية",
+    subtitle: "Print Design",
     desc: "وصف قصير",
     tags: ["Print", "Layout", "Data Viz"],
     bg: "#101a0a",
@@ -338,7 +338,15 @@ const WORKS = [
     role: "Designer",
     client: "العميل",
     fullDesc: "وصف تفصيلي.",
-    images: [],
+    images: ['assets/images/كراسة.webp',
+      'assets/images/تنسيق داخلي.webp',
+      'assets/images/تنسيق داخلي 1.webp',
+      'assets/images/بانر (5050).webp',
+      'assets/images/لافتة أكاديمة أمجاد 300150.webp',
+      '',
+      '',
+
+    ],
     link: "",
   },
 
